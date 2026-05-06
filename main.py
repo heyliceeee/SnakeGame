@@ -46,16 +46,11 @@ def game():
             is_game_on = False
             scoreboard.game_over()
 
-        for part in snake.all_snake_body: # detect collision with tail
-            if part == snake.head: # if current part is a head, ignore
-                pass
-            elif snake.head.distance(part) < 10: # if current part is < 10 steps distance from the head, game over
+        for part in snake.all_snake_body[1:]: # detect collision with tail
+            if snake.head.distance(part) < 10: # if current part is < 10 steps distance from the head, game over
                 is_game_on = False
                 scoreboard.game_over()
 
 setup_screen() # set up the screen
 game() # move the snake until the game is over
-
-# 7. detect collision with tail (game over)
-
 screen.exitonclick()
