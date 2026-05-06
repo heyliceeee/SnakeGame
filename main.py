@@ -10,9 +10,9 @@ screen = Screen()
 
 def setup_screen():
     """
-    setup the screen
+    set up the screen
     """
-    screen.setup(600, 600) # setup the screen
+    screen.setup(600, 600) # set up the screen
     screen.bgcolor("black")
     screen.title("Snake Game")
     screen.tracer(0) # turn off automatic animation
@@ -45,6 +45,13 @@ def game():
         if snake.head.xcor() > BORDERS[0] or snake.head.xcor() < BORDERS[1] or snake.head.ycor() > BORDERS[0] or snake.head.ycor() < BORDERS[1]: # detect collision with wall
             is_game_on = False
             scoreboard.game_over()
+
+        for part in snake.all_snake_body: # detect collision with tail
+            if part == snake.head: # if current part is a head, ignore
+                pass
+            elif snake.head.distance(part) < 10: # if current part is < 10 steps distance from the head, game over
+                is_game_on = False
+                scoreboard.game_over()
 
 setup_screen() # set up the screen
 game() # move the snake until the game is over
