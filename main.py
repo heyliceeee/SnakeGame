@@ -3,9 +3,8 @@ from turtle import Screen
 from Food import Food
 from Scoreboard import Scoreboard
 from Snake import Snake
+BORDERS = [280, -280]
 
-
-is_game_over = False # true if game start, otherwise false
 
 screen = Screen()
 
@@ -40,15 +39,16 @@ def game():
 
         if snake.head.distance(food) < 15: # detect collision with food
             food.refresh() # update food with random location
-            scoreboard.refresh() # increase scoreboard
+            scoreboard.increase_score() # increase scoreboard
             snake.increase_size() # increase snake
+
+        if snake.head.xcor() > BORDERS[0] or snake.head.xcor() < BORDERS[1] or snake.head.ycor() > BORDERS[0] or snake.head.ycor() < BORDERS[1]: # detect collision with wall
+            is_game_on = False
+            scoreboard.game_over()
 
 setup_screen() # set up the screen
 game() # move the snake until the game is over
 
-
-# 5. create a scoreboard (increase score when snake collide with food)
-# 6. detect collision with wall (game over)
 # 7. detect collision with tail (game over)
 
 screen.exitonclick()

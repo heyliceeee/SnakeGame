@@ -16,14 +16,26 @@ class Scoreboard(Turtle):
         self.color("white")
         self.penup()  # no draw while move
         self.goto(0, 250) # text up the screen
-        self.refresh()
+        self.hideturtle()
+        self.update()
 
 
-    def refresh(self):
+    def game_over(self):
+        """
+        show game over text
+        """
+        self.clear() # clear the previous score
+        self.write(f"GAME OVER! Score: {self.score}", False, align=ALIGN, font=FONT)
+        self.hideturtle()
+    def update(self):
         """
         update the scoreboard
         """
-        self.clear() # clear the previous score
         self.write(f"Score: {self.score}", False, align=ALIGN, font=FONT)
-        self.hideturtle()
+    def increase_score(self):
+        """
+        increase score
+        """
         self.score += 1
+        self.clear() # clear the previous score
+        self.update()
