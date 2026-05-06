@@ -17,12 +17,16 @@ def setup_screen():
     screen.bgcolor("black")
     screen.title("Snake Game")
     screen.tracer(0) # turn off automatic animation
-
 def game():
     """
     move the snake until the game is over
     """
     snake = Snake() # create a snake
+    screen.listen()
+    screen.onkey(snake.up, "Up")  # when click in Up key, snake move up
+    screen.onkey(snake.down, "Down")  # when click in Down key, snake move down
+    screen.onkey(snake.left, "Left")  # when click in Left key, snake move left
+    screen.onkey(snake.right, "Right")  # when click in Right key, snake move right
 
     is_game_on = True
     while is_game_on: # while game happens

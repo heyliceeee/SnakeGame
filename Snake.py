@@ -4,11 +4,31 @@ STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
 20x20 each block; 3 blocks align horizontally
 """
 MOVE_DISTANCE = 20
+"""
+number of the steps that snake move 
+"""
+UP = 90
+"""
+degrees that head rotate when snake move up
+"""
+DOWN = 270
+"""
+degrees that head rotate when snake move down
+"""
+LEFT = 180
+"""
+degrees that head rotate when snake move left
+"""
+RIGHT = 0
+"""
+degrees that head rotate when snake move right
+"""
 
 class Snake:
     def __init__(self):
         self.all_snake_body = []
         self.create()
+        self.head = self.all_snake_body[0]
 
     def create(self):
         """
@@ -31,6 +51,28 @@ class Snake:
 
             self.all_snake_body[part].goto(new_x, new_y)  # move current part to the position of the part ahead
 
-        self.all_snake_body[0].forward(MOVE_DISTANCE)  # head go forward 20 steps
-
-    # 3. control the snake (using arrows)
+        self.head.forward(MOVE_DISTANCE)  # head go forward 20 steps
+    def up(self):
+        """
+        move the snake up
+        """
+        if self.head.heading() != DOWN: # if snake going down, not allow go up
+            self.head.setheading(UP)
+    def down(self):
+        """
+        move the snake down
+        """
+        if self.head.heading() != UP: # if snake going up, not allow go down
+            self.head.setheading(DOWN)
+    def left(self):
+        """
+        move the snake left
+        """
+        if self.head.heading() != RIGHT:  # if snake going right, not allow go left
+            self.head.setheading(LEFT)
+    def right(self):
+        """
+        move the snake right
+        """
+        if self.head.heading() != LEFT:  # if snake going left, not allow go right
+            self.head.setheading(RIGHT)
