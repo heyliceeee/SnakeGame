@@ -23,6 +23,7 @@ def game():
     """
     snake = Snake() # create a snake
     food = Food() # create a food
+    scoreboard = Scoreboard()  # create a scoreboard
 
     screen.listen()
     screen.onkey(snake.up, "Up")  # when click in Up key, snake move up
@@ -39,8 +40,8 @@ def game():
 
         if snake.head.distance(food) < 15: # detect collision with food
             food.refresh() # update food with random location
+            scoreboard.refresh() # increase scoreboard
             # increase snake
-            # increase scoreboard
 
 setup_screen() # set up the screen
 game() # move the snake until the game is over

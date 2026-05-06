@@ -16,7 +16,7 @@ class Food(Turtle):
         """
         update food with random location
         """
-        random_x = random.randint(-280, 280)
-        random_y = random.randint(-280, 280)
+        random_x = random.randint(-280, 250)
+        random_y = random.randint(-280, 250)
 
         self.goto(random_x, random_y)  # go random location
