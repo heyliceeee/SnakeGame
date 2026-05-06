@@ -76,3 +76,14 @@ class Snake:
         """
         if self.head.heading() != LEFT:  # if snake going left, not allow go right
             self.head.setheading(RIGHT)
+    def increase_size(self):
+        """
+        increase the size of the snake
+        """
+        tail = self.all_snake_body[-1] # get tail part
+        new_part = Turtle("square")  # create new segment
+        new_part.color("white")  # same color as snake
+        new_part.penup()  # no drawing
+        new_part.goto(tail.xcor(), tail.ycor())  # place new segment at tail position
+
+        self.all_snake_body.append(new_part)  # add new segment to the snake
