@@ -5,13 +5,18 @@ import random
 class Food(Turtle):
     def __init__(self):
         super().__init__()
-        self.shape("circle") # shape
-        self.penup()  # no draw while move
-        self.shapesize(0.5, 0.5) # size
-        self.color("blue")  # color
-        self.speed(0) # fastest speed
+        self.create()
         self.refresh()
 
+    def create(self):
+        """
+        create food
+        """
+        self.shape("circle")  # shape
+        self.penup()  # no draw while move
+        self.shapesize(0.5, 0.5)  # size
+        self.color("blue")  # color
+        self.speed(0)  # fastest speed
     def refresh(self):
         """
         update food with random location
