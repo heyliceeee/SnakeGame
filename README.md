@@ -25,6 +25,7 @@ Criar uma versão modular e orientada a objetos do jogo Snake, com animações s
 - Deteção de colisão com paredes  
 - Deteção de colisão com a própria cauda  
 - Fim de jogo com mensagem personalizada
+- Armazenamento simples da pontuação mais alta num `.txt`
 
 ---
 
@@ -44,3 +45,4 @@ Criar uma versão modular e orientada a objetos do jogo Snake, com animações s
 - Listas e manipulação de coordenadas  
 - Loops de jogo  
 - Modularização de código
+- Leitura e escrita de ficheiros (I/O)
